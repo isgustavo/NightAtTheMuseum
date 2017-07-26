@@ -20,3 +20,7 @@ I downloaded a free environment form asset store and used a familiar green rect 
 
 # Conclusion
 This VR project was the last project from first part of my Nanodegree. This two last projects boost me up on VR development. I am not a good level design, I'm programer and I know certitly exist a other easier way to design the level who I did. This was I great experience and now I'm going to extracurricular topics in my Nanodegree. 
+
+# "No matter how intuitive or easy the navigation maybe. you should tell the user how they can move around."
+
+![alt text](https://github.com/isgustavo/NightAtTheMuseum/blob/master/Screenshot/Untitled%20copy%204.png " ")
