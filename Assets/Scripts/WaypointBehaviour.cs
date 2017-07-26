@@ -30,9 +30,12 @@ public class WaypointBehaviour : MonoBehaviour {
 	[SerializeField]
 	protected float scaleFocusMax;
 
-	[SerializeField]
-	protected AudioClip clip_click;
+	protected AudioSource playerAudio;
 
+	protected void Start () {
+
+		playerAudio = GetComponent<AudioSource> ();
+	}
 
 	protected void Update () {
 
@@ -78,12 +81,30 @@ public class WaypointBehaviour : MonoBehaviour {
 
 	public void Click () {
 
+		GameObject[] objs =  GameObject.FindGameObjectsWithTag("Video");
+
+		foreach(GameObject obj in objs) {
+
+			VideoPlayerBehaviour video = obj.GetComponent<VideoPlayerBehaviour> ();
+			if (video.Video.isPlaying) {
+
+				video.Video.Stop ();
+			}
+
+		}
 
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 
 		iTween.MoveTo (player, 
 			iTween.Hash("position", gameObject.transform.position,
-						"time", 2, "easytype", "Linear"));
+				"time", 1.5f, "easytype", "Linear", "oncomplete", "OnPlayerSound", "oncompletetarget", this.gameObject));
+
+
+	}
+
+	public void OnPlayerSound () {
+
+		playerAudio.Play ();
 	}
 
 }
